@@ -121,6 +121,18 @@ main {
     gap: 20px;
     padding: 40px;
 }
+@media (max-width: 992px) {
+    .mainDosColumnas {
+        grid-template-columns: 1fr;
+        padding: 30px 25px;
+    }
+}
+@media (max-width: 480px) {
+    .mainDosColumnas {
+        padding: 20px 12px;
+        gap: 10px;
+    }
+}
 
 /* Estilo para los articulos de personal*/
 .articleTrabajador {
@@ -130,7 +142,7 @@ main {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
     padding: 25px;
-    margin: 25px;
+    margin: 15px;
     flex-wrap: wrap;
     text-align: center;
 }
@@ -148,6 +160,7 @@ main {
     border-radius: 50%;             
     margin-right: 20px;
     object-fit: cover;
+    flex-shrink: 0;
 }
 
 .articleTrabajador h2 {
@@ -172,7 +185,6 @@ main {
 .articleTrabajador .btnVerMas {
     margin-top: 15px;    /* espacio arriba */
     align-self: center;
-    /*text-align: center;/* separa del contenido superior y centra */
     padding: 8px 15px;
     background-color: #0C8289; /* teal claro botón — ratio blanco 4.60:1 ✓ AA */
     color: white;
@@ -181,12 +193,92 @@ main {
     cursor: pointer;
     font-size: 0.9rem;
     transition: background-color 0.3s;
-    width: 50%; /* Puedes establecer un ancho fijo o un máximo */
-    max-width: 200px; /* Por ejemplo, un ancho máximo */
+    width: 50%; 
+    max-width: 200px; 
 }
 
 .articleTrabajador .btnVerMas:hover {
-    background-color: #085E63; /* teal principal — ratio blanco 7.52:1 ✓ AA */
+    background-color: #085E63;
+}
+
+@media (max-width: 992px) {
+    .articleTrabajador {
+        margin: 10px 5px;
+    }
+}
+
+@media (max-width: 768px) {
+    .articleTrabajador {
+        margin: 8px 0;
+        padding: 18px;
+    }
+
+    .contenido-superior {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .articleTrabajador img {
+        margin-right: 0;
+        margin-bottom: 12px;
+        width: 70px;
+        height: 70px;
+    }
+
+    .articleTrabajador ul {
+        text-align: center;
+    }
+
+    .articleTrabajador .btnVerMas {
+        width: 70%;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .articleTrabajador {
+        padding: 14px;
+        margin: 6px 0;
+        border-radius: 8px;
+    }
+
+    .articleTrabajador img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .articleTrabajador h2 {
+        font-size: 1rem;
+    }
+
+    .articleTrabajador ul {
+        font-size: 0.85rem;
+    }
+
+    .articleTrabajador .btnVerMas {
+        width: 80%;
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 320px) {
+    .articleTrabajador {
+        padding: 10px;
+    }
+
+    .articleTrabajador img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .articleTrabajador h2 {
+        font-size: 0.95rem;
+    }
+
+    .articleTrabajador ul {
+        font-size: 0.8rem;
+    }
 }
 
 /* Estilo del main para agregar una columna */
@@ -250,14 +342,15 @@ footer {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(390px, 1fr));
     justify-items: center; /* centra horizontalmente */
-    gap: 60px; /* espacio entre recuadros */
-    padding: 60px 90px;
+    gap: 40px; /* espacio entre recuadros */
+    padding: 50px 60px;
     align-items: start;
 }
 .recuadro {
-    background: #f0f4f8; /* fondo blanco semi-transparente */
+    background: #f0f4f8;
     border-radius: 12px;
     padding: 20px;
+    width: 100%;
     max-width: 650px; /* tamaño máximo */
     box-shadow: 0 4px 8px black; /* sombra */
     display: flex;
@@ -265,6 +358,8 @@ footer {
     align-items: center;
     transition: transform 0.3s;
     flex-direction:column;
+    box-sizing: border-box;
+    height: 100%;
 }
 .recuadro h2 {
     font-size: 1.4rem;   /* Tamaño de letra */
@@ -285,16 +380,67 @@ footer {
     margin-top: 12px;
     max-height: 300px;
 }
-/* Ajustes para pantallas pequeñas */
-@media (max-width: 600px) {
+@media (max-width: 1200px) {
     .mosaico {
-        grid-template-columns: 1fr; /* un recuadro por fila */
-        gap: 50px;
-        padding: 60px 20px 100px 20px; /* más espacio abajo */
+        padding: 40px 40px;
+        gap: 30px;
     }
+}
+@media (max-width: 992px) {
+    .mosaico {
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        padding: 30px 25px;
+        gap: 25px;
+    }
+
     .recuadro {
-        max-width: 100%; /* ocupa todo el ancho disponible */
-        margin-bottom: 50px; /* espacio extra hacia abajo */
+        max-width: 100%;
+    }
+
+    .recuadro h2 {
+        font-size: 1.2rem;
+    }
+}
+@media (max-width: 768px) {
+    .mosaico {
+        grid-template-columns: 1fr;
+        padding: 25px 15px;
+        gap: 20px;
+    }
+
+    .recuadro {
+        max-width: 100%;
+        padding: 18px;
+    }
+
+    .recuadro:hover {
+        transform: scale(1.02);
+    }
+
+    .imagen-gusto {
+        max-height: 220px;
+    }
+}
+@media (max-width: 320px) {
+    .mosaico {
+        padding: 10px 8px;
+        gap: 12px;
+    }
+
+    .recuadro {
+        padding: 10px;
+    }
+
+    .recuadro h2 {
+        font-size: 1rem;
+    }
+
+    .recuadro p {
+        font-size: 0.85rem;
+    }
+
+    .imagen-gusto {
+        max-height: 150px;
     }
 }
 /* ---------------------------------------------------------------- */
